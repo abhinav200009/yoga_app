@@ -71,12 +71,10 @@ String? validateEmail(String? value) {
   return msg;
 }
 
-String validatePass(String? value) {
-  String _msg = 'Error';
+String? validatePass(String? value) {
+  String? msg;
   if (value!.isEmpty) {
-    _msg = "Your Password is required";
-  } else {
-    _msg = '';
+    msg = "Your Password is required";
   }
-  return _msg;
+  return msg;
 }
