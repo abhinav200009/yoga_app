@@ -1,3 +1,5 @@
+import 'package:email_validator/email_validator.dart';
+
 import 'package:flutter/material.dart';
 
 class MyTextFeild extends StatelessWidget {
@@ -7,20 +9,22 @@ class MyTextFeild extends StatelessWidget {
   final bool isobscure;
   final FormFieldValidator<String>? validator;
   final Widget? suffix;
-  final FormFieldSetter<String>? onSaved;
+
   final bool check;
 
-  const MyTextFeild(
-      {Key? key,
-      required this.hintText,
-      required this.icon,
-      required this.textType,
-      required this.isobscure,
-      this.validator,
-      this.suffix,
-      required this.onSaved,
-      required this.check})
-      : super(key: key);
+  final TextEditingController controller;
+
+  const MyTextFeild({
+    Key? key,
+    required this.hintText,
+    required this.icon,
+    required this.textType,
+    required this.isobscure,
+    this.validator,
+    this.suffix,
+    required this.controller,
+    required this.check,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,27 +58,23 @@ class MyTextFeild extends StatelessWidget {
       keyboardType: textType,
       validator: (check) ? validateEmail : validatePass,
       textInputAction: TextInputAction.done,
-      onSaved: onSaved,
+      controller: controller,
     );
   }
 }
 
-String? validateEmail(String? value) {
+String? validatePass(String? value) {
   String? msg;
-  RegExp regex = new RegExp(
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-  if (value!.isEmpty) {
-    msg = "Your username is required";
-  } else if (!regex.hasMatch(value)) {
-    msg = "Please provide a valid Email address";
+  if (value != null && value.length < 6) {
+    msg = "Your Password is required";
   }
   return msg;
 }
 
-String? validatePass(String? value) {
+String? validateEmail(String? value) {
   String? msg;
-  if (value!.isEmpty) {
-    msg = "Your Password is required";
+  if (value != null && !EmailValidator.validate(value)) {
+    msg = "Enter a valid email";
   }
   return msg;
 }

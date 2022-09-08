@@ -1,7 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga_app/customized/custom_textfield.dart';
-import 'package:yoga_app/screens/home.dart';
-import 'package:yoga_app/screens/login.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -11,17 +10,39 @@ class signup extends StatefulWidget {
 }
 
 class _signupState extends State<signup> {
-  String? _userName, _password, _fullname, _phonenumber;
   bool istrue = false;
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  Future signUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailcontroller.text.trim(),
+          password: passwordcontroller.text.trim());
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Align(
           alignment: Alignment.center,
-          child: Text(
-            "Yoga App",
-            style: TextStyle(fontWeight: FontWeight.bold),
+          child: Padding(
+            padding: EdgeInsets.only(right: 30),
+            child: Text(
+              "Yoga App",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         backgroundColor: Colors.blueAccent,
@@ -43,20 +64,6 @@ class _signupState extends State<signup> {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 5),
-
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const login()),
-              //     );
-              //   },
-              //   child: const Text('Login',
-              //       style: TextStyle(
-              //         color: Colors.black,
-              //         fontSize: 12,
-              //       )),
-              // ),
               SizedBox(height: 15),
               TextFormField(
                 cursorHeight: 18,
@@ -141,8 +148,8 @@ class _signupState extends State<signup> {
               ),
               SizedBox(height: 15),
               MyTextFeild(
+                controller: emailcontroller,
                 check: true,
-                onSaved: (value) => _userName = value,
                 hintText: 'Email address',
                 icon: IconButton(
                   icon: Icon(Icons.person_rounded),
@@ -154,8 +161,8 @@ class _signupState extends State<signup> {
               ),
               SizedBox(height: 20),
               MyTextFeild(
+                  controller: passwordcontroller,
                   check: false,
-                  onSaved: (value) => _userName = value,
                   hintText: 'Password',
                   icon: IconButton(
                       onPressed: () {
@@ -164,7 +171,7 @@ class _signupState extends State<signup> {
                       },
                       icon: (istrue) ? Icon(Icons.lock) : Icon(Icons.lock_open),
                       color: Colors.blueAccent),
-                  textType: TextInputType.none,
+                  textType: TextInputType.text,
                   isobscure: istrue),
               SizedBox(height: 10),
               SizedBox(height: 10),
@@ -204,7 +211,7 @@ class _signupState extends State<signup> {
                             padding: MaterialStateProperty.all<EdgeInsets>(
                                 EdgeInsets.all(20)),
                           ),
-                          onPressed: () {}),
+                          onPressed: signUp),
                     ),
                   ),
                 ],

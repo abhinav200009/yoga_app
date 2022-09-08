@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga_app/customized/custom_textfield.dart';
-import 'package:yoga_app/screens/home.dart';
+import 'package:yoga_app/main.dart';
+
 import 'package:yoga_app/screens/signup.dart';
 
 class login extends StatefulWidget {
@@ -11,8 +13,33 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
-  String? _userName, _password;
   bool istrue = false;
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  Future signIn() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Center(child: CircularProgressIndicator()),
+    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailcontroller.text.trim(),
+          password: passwordcontroller.text.trim());
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+    navigatorKey.currentState!.popUntil((Route) => Route.isFirst);
+  }
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +76,8 @@ class _loginState extends State<login> {
               ),
               SizedBox(height: 15),
               MyTextFeild(
+                controller: emailcontroller,
                 check: true,
-                onSaved: (value) => _userName = value,
                 hintText: 'Email address',
                 icon: IconButton(
                   icon: Icon(Icons.person_rounded),
@@ -63,7 +90,7 @@ class _loginState extends State<login> {
               SizedBox(height: 20),
               MyTextFeild(
                   check: false,
-                  onSaved: (value) => _userName = value,
+                  controller: passwordcontroller,
                   hintText: 'Password',
                   icon: IconButton(
                       onPressed: () {
@@ -109,13 +136,7 @@ class _loginState extends State<login> {
                             padding: MaterialStateProperty.all<EdgeInsets>(
                                 EdgeInsets.all(20)),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Home()),
-                            );
-                          }),
+                          onPressed: signIn),
                     ),
                   ),
                 ],

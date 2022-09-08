@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yoga_app/screens/finish.dart';
+import 'package:yoga_app/screens/sphinx.dart';
 
 class Break extends StatelessWidget {
   const Break({Key? key}) : super(key: key);
@@ -48,14 +49,20 @@ class Break extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Sphinx()));
+                      },
                       child: const Text("Previous",
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
                               fontWeight: FontWeight.bold))),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Finish()));
+                      },
                       child: const Text("Skip",
                           style: TextStyle(
                               fontSize: 20,
