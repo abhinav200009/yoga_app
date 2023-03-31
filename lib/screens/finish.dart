@@ -90,10 +90,13 @@ class Finish extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 200,
-            color: Colors.grey,
+          SafeArea(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              //height: MediaQuery.of(context).size.height,
+              height: 100,
+              color: Colors.grey,
+            ),
           )
         ],
       ),

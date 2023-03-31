@@ -63,211 +63,75 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 child: Stack(
                   children: [
                     SingleChildScrollView(
-                        child: Stack(children: [
-                      Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.fromLTRB(50, 120, 50, 60),
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(20),
-                                    bottomLeft: Radius.circular(20))),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text("1"),
-                                    Text(
-                                      "Streak",
-                                      style: TextStyle(fontSize: 15),
-                                    )
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text("179"),
-                                    Text("KCal", style: TextStyle(fontSize: 15))
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text("38"),
-                                    Text("Minutes",
-                                        style: TextStyle(fontSize: 15))
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.all(15),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Text(
-                                    "Yoga For All",
+                        child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(50, 120, 50, 60),
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Column(
+                                children: [
+                                  Text("1",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white)),
+                                  Text(
+                                    "Streak",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Startup()));
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.all(15),
-                                    child: Stack(
-                                      children: [
-                                        Container(
-                                          height: 250,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    'assets/yoga.jpg'),
-                                                fit: BoxFit.cover),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 250,
-                                          color: Colors.black26,
-                                        ),
-                                        Positioned(
-                                          top: 5,
-                                          left: 20,
-                                          child: Text(
-                                            "Yoga For Beginners",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 22,
-                                          top: 30,
-                                          child: Text(
-                                            "Last Time: 26 Jan",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                Container(
-                                  margin: EdgeInsets.all(15),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        height: 250,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/yoga2.jpg'),
-                                              fit: BoxFit.fill),
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 250,
-                                        color: Colors.black26,
-                                      ),
-                                      Positioned(
-                                        top: 5,
-                                        left: 20,
-                                        child: Text(
-                                          "All In One Yoga",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 22,
-                                        top: 30,
-                                        child: Text(
-                                          "Last Time: 19 Jan",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.all(15),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        height: 250,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/yoga3.jpg'),
-                                              fit: BoxFit.fill),
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 250,
-                                        color: Colors.black26,
-                                      ),
-                                      Positioned(
-                                        top: 5,
-                                        left: 20,
-                                        child: Text(
-                                          "10 Minutes Yoga",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 22,
-                                        top: 30,
-                                        child: Text(
-                                          "Last Time: 2 Feb",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                                        fontSize: 15, color: Colors.white),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text("179",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white)),
+                                  Text("KCal",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white))
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text("38",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white)),
+                                  Text("Minutes",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white))
+                                ],
+                              )
+                            ],
                           ),
-                          Container(
-                            margin: EdgeInsets.all(15),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Text(
-                                    "Yoga For Students",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
-                                  ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                width: MediaQuery.of(context).size.width,
+                                child: Text(
+                                  "Yoga For All",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
                                 ),
-                                Container(
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Startup()));
+                                },
+                                child: Container(
                                   margin: EdgeInsets.all(15),
                                   child: Stack(
                                     children: [
@@ -277,7 +141,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                           image: DecorationImage(
                                               image:
                                                   AssetImage('assets/yoga.jpg'),
-                                              fit: BoxFit.fill),
+                                              fit: BoxFit.cover),
                                         ),
                                       ),
                                       Container(
@@ -288,7 +152,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                         top: 5,
                                         left: 20,
                                         child: Text(
-                                          "Yoga For Weight Loss",
+                                          "Yoga For Beginners",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
@@ -299,7 +163,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                         left: 22,
                                         top: 30,
                                         child: Text(
-                                          "Last Time: 16 Jan",
+                                          "Last Time: 26 Jan",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12),
@@ -308,98 +172,237 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 10),
-                                Container(
-                                  margin: EdgeInsets.all(15),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        height: 250,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/yoga2.jpg'),
-                                              fit: BoxFit.fill),
-                                        ),
+                              ),
+                              SizedBox(height: 10),
+                              Container(
+                                margin: EdgeInsets.all(15),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 250,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/yoga2.jpg'),
+                                            fit: BoxFit.fill),
                                       ),
-                                      Container(
-                                        height: 250,
-                                        color: Colors.black26,
+                                    ),
+                                    Container(
+                                      height: 250,
+                                      color: Colors.black26,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 20,
+                                      child: Text(
+                                        "All In One Yoga",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
                                       ),
-                                      Positioned(
-                                        top: 5,
-                                        left: 20,
-                                        child: Text(
-                                          "Yoga To Increase Concentration",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15),
-                                        ),
+                                    ),
+                                    Positioned(
+                                      left: 22,
+                                      top: 30,
+                                      child: Text(
+                                        "Last Time: 19 Jan",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
                                       ),
-                                      Positioned(
-                                        left: 22,
-                                        top: 30,
-                                        child: Text(
-                                          "Last Time: 14 Feb",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 10,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(15),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 250,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/yoga3.jpg'),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 250,
+                                      color: Colors.black26,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 20,
+                                      child: Text(
+                                        "10 Minutes Yoga",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 22,
+                                      top: 30,
+                                      child: Text(
+                                        "Last Time: 2 Feb",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.all(15),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        height: 250,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/yoga3.jpg'),
-                                              fit: BoxFit.fill),
-                                        ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                width: MediaQuery.of(context).size.width,
+                                child: Text(
+                                  "Yoga For Students",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(15),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 250,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/yoga.jpg'),
+                                            fit: BoxFit.fill),
                                       ),
-                                      Container(
-                                        height: 250,
-                                        color: Colors.black26,
+                                    ),
+                                    Container(
+                                      height: 250,
+                                      color: Colors.black26,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 20,
+                                      child: Text(
+                                        "Yoga For Weight Loss",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
                                       ),
-                                      Positioned(
-                                        top: 5,
-                                        left: 20,
-                                        child: Text(
-                                          "Yoga For Shoulders and Eyes",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15),
-                                        ),
+                                    ),
+                                    Positioned(
+                                      left: 22,
+                                      top: 30,
+                                      child: Text(
+                                        "Last Time: 16 Jan",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
                                       ),
-                                      Positioned(
-                                        left: 22,
-                                        top: 30,
-                                        child: Text(
-                                          "Last Time: 18 Feb",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ])),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Container(
+                                margin: EdgeInsets.all(15),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 250,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/yoga2.jpg'),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 250,
+                                      color: Colors.black26,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 20,
+                                      child: Text(
+                                        "Yoga To Increase Concentration",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 22,
+                                      top: 30,
+                                      child: Text(
+                                        "Last Time: 14 Feb",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                margin: EdgeInsets.all(15),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 250,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/yoga3.jpg'),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 250,
+                                      color: Colors.black26,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 20,
+                                      child: Text(
+                                        "Yoga For Shoulders and Eyes",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 22,
+                                      top: 30,
+                                      child: Text(
+                                        "Last Time: 18 Feb",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
                     Customappbar(
                         animationController: _animationController,
                         yogatween: _yogatween,

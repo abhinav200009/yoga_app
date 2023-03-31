@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga_app/customized/custom_textfield.dart';
 import 'package:yoga_app/main.dart';
+import 'package:yoga_app/screens/forgotpass.dart';
 
 import 'package:yoga_app/screens/signup.dart';
 
@@ -107,7 +108,13 @@ class _loginState extends State<login> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const forgotpassword()),
+                      );
+                    },
                     child: const Text('Forgot Password?',
                         style: TextStyle(
                           color: Colors.black,

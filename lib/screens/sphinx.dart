@@ -167,7 +167,7 @@ class TimerModels extends ChangeNotifier {
   bool visible = false;
   myTimersec(context) async {
     Timer.periodic(Duration(seconds: 1), (timer) {
-      countdown--;
+      visible ? countdown + 0 : countdown--;
       notifyListeners();
       if (countdown == 0) {
         timer.cancel();

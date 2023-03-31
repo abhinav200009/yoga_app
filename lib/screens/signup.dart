@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:yoga_app/customized/custom_textfield.dart';
+import 'package:yoga_app/customized/customize_snackbar.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class _signupState extends State<signup> {
           password: passwordcontroller.text.trim());
     } on FirebaseAuthException catch (e) {
       print(e);
+      Utils.showSnackBar(e.message);
     }
   }
 
@@ -145,6 +148,7 @@ class _signupState extends State<signup> {
                   }
                   return null;
                 },
+                //textInputAction: TextInputType.number,
               ),
               SizedBox(height: 15),
               MyTextFeild(
